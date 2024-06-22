@@ -31,7 +31,6 @@ impl KoriAuth {
 
     pub async fn authenticate(&mut self) -> Result<(), Box<dyn std::error::Error>> {
         let request = tonic::Request::new(GenerateAuthChallengeRequest {
-            role: 1, // 1 for SEARCHER
             pubkey: Vec::from(self.key.public().as_bytes()),
         });
 

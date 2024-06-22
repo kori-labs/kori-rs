@@ -34,7 +34,7 @@ impl KoriSearcher {
         on_data: F,
     ) -> Result<(), Box<dyn std::error::Error>>
         where
-            F: Fn(proto::dto::MempoolTransactionsWithEffects) + Send + 'static,
+            F: Fn(proto::dto::MempoolPacket) + Send + 'static,
     {
         let mut request = tonic::Request::new(MempoolSubscription {
             packages: if !packages.is_empty() { Some(PackageSubscriptionV0 { package: packages }) } else { None },
